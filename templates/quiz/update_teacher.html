@@ -1,0 +1,62 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_edit.css' %}">
+
+</head>
+<body>
+  {% block content %}
+<div class="login-box" style="width:900px;height:800px;">
+  <br><br><br>
+<h3 style="text-align:center;color:red;">UPDATE TEACHER</h3>
+  <form method="post"  autocomplete="off" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="user-box">
+        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+        <label for="first_name">First Name</label>
+      </div>
+      
+      <div class="user-box">
+        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+        <label for="last_name">Last Name</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="user-box">
+        {% render_field teacherForm.mobile class="form-control" placeholder="Mobile" %}
+          <label for="mobile">Mobile</label>
+          </div>
+      
+      <div class="user-box">
+        {% render_field teacherForm.address class="form-control" placeholder="Address" %}
+        <label for="address">Address</label>
+      </div>
+    </div> 
+    <div class="form-row">
+      <div class="user-box">
+        {% render_field userForm.username class="form-control" placeholder="Username" %}
+        <label for="username">Username</label>
+        </div>
+      
+      <div class="user-box">
+        {% render_field userForm.password class="form-control" placeholder="Password" %} <br><br>
+        <label for="password">Password</label>
+        </div>
+    </div>
+    <label  class="j" for ="profile_pic">Profile Picture Details : </label><br>
+    {% render_field teacherForm.profile_pic|attr:'required:true' class="m" placeholder="" %}
+    <br><br>
+    <a><span></span><span></span><span></span><span></span>
+      <button class="z"type="submit">
+          Update
+      </button></a>
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}
+</body>

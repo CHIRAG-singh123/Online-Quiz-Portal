@@ -1,0 +1,78 @@
+{% extends 'teacher/teacherbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_signup.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+    
+  </style>
+</head>
+<div class="login-box" style="width:900px;height:1100px;">
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <h2 style="text-align:center; color:blue;">ADD QUESTION</h2>
+  <a href="teacher-csv-question"><button  class="m">➕CSV</button></a>
+  <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+      <div class="form-group">
+        <div class="user-box">
+          {% render_field questionForm.courseID|attr:'required:true' style="margin-left:120px;margin-top: 0px;" %}
+          <label for="question">Course</label>
+        </div>
+          <br>
+          <div class="user-box">
+            <label for="question">Question</label>
+            <br><br>
+            {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="What is the currency of India ?" %}
+          </div>
+          <br>
+          <div class="user-box">
+            {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="" %}
+            <label for="question_number">Marks</label>
+          </div>
+          <br>
+          <div class="user-box">
+            {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="" %}
+            <label for="option1">Option 1</label>
+          </div>
+          <br>
+          <div class="user-box">
+            {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="" %}
+            <label for="option2">Option 2</label>
+          </div>
+          <br>
+          <div class="user-box">
+            {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="" %}
+            <label for="option3">Option 3</label>
+          </div>  
+          <br>
+          <div class="user-box">
+            {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="" %}
+            <label for="option4">Option 4</label>
+          </div>  
+          <br>
+          <div class="user-box">
+            {% render_field questionForm.answer|attr:'required:true' class="form-control" style="margin-left:120px;margin-top: 0px;" %}
+            <label for="answer">Answer</label>
+          </div>
+          <br><br><br><br>
+          <a><span></span><span></span><span></span><span></span>
+            <button class="z"type="submit">
+              ADD
+            </button></a>
+     </div>
+      
+    </div>
+    </form>
+  <br><br><br>
+  {% endblock content %}

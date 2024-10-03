@@ -1,0 +1,54 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_edit.css' %}">
+    <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </style>
+</head>
+<body>
+{% block content %}
+<div class="login-box" style="width:900px;height:600px;">
+  <br>
+  <h2 style="text-align:center; color:blue;">ADD COURSE</h2>
+  <a href="admin-csv-course"><button  class="m">➕CSV</button></a><br><br>
+  <form method="POST" autocomplete="off" >
+    {%csrf_token%}
+    <div class="form-group">
+      <div class="user-box">
+        {% render_field courseForm.sem style="margin-left:120px;margin-top:0px;"class="form-control"  %}
+        
+        <label for="sem">Sem</label>
+      </div>
+      <br><br>
+      <div class="user-box">
+        {% render_field courseForm.course_name class="form-control"  %}
+        <label for="course_name">Course Name</label>
+      </div>
+      
+      <div class="user-box">
+        {% render_field courseForm.question_number class="form-control" %}
+        <label for="question_number">Total Question</label>
+      </div>
+      <div class="user-box">
+        {% render_field courseForm.total_marks class="form-control"  %}
+        <label for="total_marks">Total Marks</label>
+      </div>
+    </div>
+    <a><span></span><span></span><span></span><span></span>
+      <button class="z"type="submit">
+          ADD
+      </button></a>
+  </form>
+</div>
+<br><br><br>
+{% endblock content %}
+</body>

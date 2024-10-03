@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_edit.css' %}">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+ 
+
+
+<br><br><br><br><br><br>
+<h3 style="text-align: center;color: red;height:200px;">TEACHER SIGNUP</h3>
+<br>
+<div class="login-box">
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="user-box">
+        {% render_field userForm.username|attr:'required:true'  class="form-control" %}
+        <label for ="username">Username</label>
+      </div>
+      <div class="user-box">
+        {% render_field userForm.password|attr:'required:true'  class="form-control"%}
+        <label for ="password">Password</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="user-box">
+        {% render_field userForm.first_name|attr:'required:true'  class="form-control"  %}
+        <label for ="first_name">First Name</label>
+      </div>
+      <div class="user-box">
+      {% render_field userForm.last_name|attr:'required:true'  class="form-control" %}
+      <label for ="last_name">Last Name</label>
+    </div>
+    </div>
+    <div class="form-row">
+      </div>
+      <div class="form-row">
+        <div class="user-box">
+          {% render_field teacherForm.mobile|attr:'required:true'  class="form-control"  %}
+          <label for ="mobile">Mobile</label>
+        </div>
+        <div class="user-box">
+        {% render_field teacherForm.address|attr:'required:true'  class="form-control" %}
+        <label for ="address">Address</label>
+      </div>
+      </div>
+<div>
+          <label class="j" for="profile_pic">Profile Picture 
+            {% render_field teacherForm.profile_pic|attr:'required:true' class="a"%} </label>
+          </div>
+      <a><span></span><span></span><span></span><span></span>
+        <button class="z"type="submit">
+            Sign Up
+        </button></a>
+  </form>
+  </body>
+</html>

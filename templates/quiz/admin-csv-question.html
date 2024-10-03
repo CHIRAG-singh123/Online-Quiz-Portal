@@ -1,0 +1,42 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_signup.css' %}">
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+    
+  </style>
+</head>
+<div class="login-box" style="width:900px;height:1100px;">
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2 style="text-align:center; color:blue;">ADD QUESTION CSV UPLOAD</h2>
+<form method="post" style="color:#03e9f4;" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br><br><br><br>
+        <a><span></span><span></span><span></span><span></span>
+          <button class="z"type="submit">
+            Upload
+          </button></a>
+</form>
+{% if error_message %}
+    <p style="color: red">{{ error_message }}</p>
+{% endif %}
+
+        
+   </div>
+    
+  </div>
+  </form>
+<br><br><br>
+{% endblock content %}
